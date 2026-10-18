@@ -3,61 +3,51 @@
 <head>
 <meta charset="utf-8">
 <title>إنفوجرافيك معهد سلاح التموين</title>
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--gold:#a8791f;--gold-dark:#8a6212;--ink:#111;}
+  :root{--gold:#a8791f;--gold-dark:#8a6212;--ink:#111;--margin:44px}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#fff;font-family:'Almarai',sans-serif;font-weight:800;color:var(--ink)}
+  /* A4 landscape canvas, equal safe margin on all four sides */
   .page{width:1123px;height:794px;margin:0 auto;background:#fff;overflow:hidden;
-    display:flex;flex-direction:column;justify-content:space-between;padding:26px 44px 24px}
+    display:flex;flex-direction:column;justify-content:space-between;padding:var(--margin)}
   h2{color:var(--gold);text-shadow:2px 2px 0 rgba(0,0,0,.18);line-height:1.2;font-size:32px;margin-bottom:8px}
-  .cols{display:flex;align-items:flex-start}
-  .cols>section{flex:1;min-width:0}
-  #vision{flex:1!important}#mission{flex:1!important}
-  .hdiv{height:14px;position:relative}
+
+  /* dividers */
+  .hdiv{height:14px;position:relative;flex:none}
   .hdiv::before{content:"";position:absolute;left:0;right:0;top:6px;height:1.5px;background:var(--gold)}
   .hdiv::after{content:"";position:absolute;left:50%;top:1px;width:11px;height:11px;margin-left:-5px;background:var(--gold);transform:rotate(45deg)}
+  .cols{display:flex;align-items:flex-start;flex:none}
+  .cols>section{flex:1;min-width:0}
   .vdiv{width:30px;flex:none;position:relative;align-self:stretch}
   .vdiv::before{content:"";position:absolute;top:0;bottom:0;left:14px;width:1.5px;background:var(--gold)}
   .vdiv::after{content:"";position:absolute;top:50%;left:9px;width:11px;height:11px;margin-top:-5px;background:var(--gold);transform:rotate(45deg)}
+
   /* الرؤية والرسالة */
   .row{display:flex;align-items:flex-start;gap:22px}
-  .row img{width:128px;height:128px;flex:none}
-  .row p{font-size:20px;line-height:1.75}
-  /* الأهداف */
-  #goals h2,#values h2{text-align:center}
-  .goals{display:flex;justify-content:center;align-items:flex-start}
-  .goal{width:150px;text-align:center;flex:none}
-  .goal img{width:88px;height:88px;display:block;margin:0 auto}
-  .goal .n{font-size:28px;color:var(--gold-dark);margin-top:4px;line-height:1.1}
-  .goal .t{font-size:17px;margin-top:2px;white-space:nowrap}
-  .link{flex:1;max-width:46px;height:3px;background:var(--gold);margin-top:42px}
-  /* القيم */
-  .vals{display:flex;justify-content:center;gap:6px}
-  .val{width:118px;text-align:center}
-  .val svg{width:88px;height:88px;display:block;margin:0 auto 6px}
-  .val .n{font-size:28px;color:var(--gold-dark);line-height:1.1}
-  .val .t{font-size:17px;margin-top:2px;line-height:1.2}
-  /* الشهادات */
-  #cert{display:flex;align-items:center;gap:22px;height:188px;width:572px;margin:0 auto;position:relative;left:-12px}
-  #cert img{mix-blend-mode:multiply;height:auto}
-  .cert-box{flex:1;height:166px;border:2.5px solid transparent;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 16px 0}
-  .cert-box h3{position:absolute;top:-17.25px;left:0;right:0;display:flex;align-items:center;justify-content:center;padding:0;color:var(--gold);font-size:22px;line-height:32px;text-align:center}
+  .row img{width:112px;height:112px;flex:none}
+  #vision p{font-size:24px;line-height:1.75;font-weight:700}
+  #mission p{font-size:16px;line-height:1.97;font-weight:400}
 
-  .cert-box::before{content:"";position:absolute;inset:-2.5px;border:2.5px solid var(--gold);box-sizing:border-box;pointer-events:none;
-    -webkit-mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
-    mask-image:linear-gradient(#000,#000),linear-gradient(#000,#000),linear-gradient(#000,#000);
-    -webkit-mask-size:var(--tw,0px) 8px,var(--iw,0px) 8px,100% 100%;mask-size:var(--tw,0px) 8px,var(--iw,0px) 8px,100% 100%;
-    -webkit-mask-position:center top,center bottom,0 0;mask-position:center top,center bottom,0 0;
-    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-    -webkit-mask-composite:xor,xor,source-over;mask-composite:exclude,exclude,add}
-  .cert-box h3 span{padding:0 4px;white-space:nowrap}
-  .logos-wrap{align-self:flex-start;margin-right:33.5px;display:flex;flex-direction:column;align-items:center}
-  .logos{display:flex;align-items:center;gap:28px}
-  .logos img:nth-child(1){width:100px}.logos img:nth-child(2){width:190px}
-  .iso{position:absolute;bottom:-17.25px;left:0;right:0;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:22px;line-height:32px;direction:ltr;text-align:center}
-  .iso span{padding:0 4px;white-space:nowrap}
-  .seal{width:150px;flex:none}
+  /* الأهداف والقيم */
+  #goals h2,#values h2{text-align:center}
+  .items{display:flex;justify-content:space-evenly;align-items:flex-start}
+  .item{text-align:center;flex:none}
+  .goal{width:150px}
+  .val{width:112px}
+  .item img,.item svg{width:88px;height:88px;display:block;margin:0 auto}
+  .item .n{font-size:28px;color:var(--gold-dark);margin-top:6px;line-height:1.1}
+  .item .t{font-size:16px;margin-top:8px;line-height:1.3;white-space:nowrap}
+  .goal .t{margin-top:2px}
+
+  /* الاعتمادات */
+  .sub{font-size:24px;text-align:center;margin-bottom:12px}
+  .media{display:flex;align-items:flex-end;justify-content:center;gap:28px;height:124px}
+  .media img{mix-blend-mode:multiply;height:auto}
+  #military .media img{height:124px;width:auto;margin-bottom:-5px}
+  #isocert .media img:nth-child(1){width:100px;margin-bottom:-6.6px}
+  #isocert .media img:nth-child(2){width:190px;margin-bottom:-1.1px}
+  .tag{height:26px;margin-top:6px;font-size:16px;line-height:26px;color:var(--gold);text-align:center;direction:ltr;letter-spacing:.3px}
 </style>
 </head>
 <body>
@@ -88,36 +78,42 @@
   <div class="cols">
     <section id="goals">
       <h2>الأهداف الرئيسية</h2>
-      <div class="goals">
-        <div class="goal"><img src="assets/building.svg" alt=""><div class="n">١</div><div class="t">توفير بيئة جاذبة</div></div>
-        <div class="link"></div>
-        <div class="goal"><img src="assets/people.svg" alt=""><div class="n">٢</div><div class="t">تنمية الموارد البشرية</div></div>
-        <div class="link"></div>
-        <div class="goal"><img src="assets/grad.svg" alt=""><div class="n">٣</div><div class="t">ضمان جودة التدريب</div></div>
+      <div class="items">
+        <div class="item goal"><img src="assets/building.svg" alt=""><div class="n">١</div><div class="t">توفير بيئة جاذبة</div></div>
+        <div class="item goal"><img src="assets/people.svg" alt=""><div class="n">٢</div><div class="t">تنمية الموارد البشرية</div></div>
+        <div class="item goal"><img src="assets/grad.svg" alt=""><div class="n">٣</div><div class="t">ضمان جودة التدريب</div></div>
       </div>
     </section>
     <div class="vdiv"></div>
     <section id="values">
       <h2>القيم</h2>
-      <div class="vals"><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M50 22 L72 30 V50 C72 64 62 73 50 78 C38 73 28 64 28 50 V30 Z"/><path d="M39 50 L47 58 L62 42"/></svg><div class="n">١</div><div class="t">الانضباط</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M32 26 H54 L66 38 V60 M32 26 V74 H48"/><path d="M54 26 V38 H66"/><path d="M40 46 H56 M40 56 H46"/><circle cx="60" cy="62" r="9"/><path d="M67 69 L76 78"/></svg><div class="n">٢</div><div class="t">الشفافية</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M50 26 V72 M38 74 H62 M28 36 H72"/><circle cx="50" cy="24" r="2.6"/><path d="M28 36 L20 54 M28 36 L36 54 M72 36 L64 54 M72 36 L80 54"/><path d="M20 54 Q28 64 36 54 Z M64 54 Q72 64 80 54 Z"/></svg><div class="n">٣</div><div class="t">العدالة</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M18 46 L32 42 V62 L18 58 Z M82 46 L68 42 V62 L82 58 Z"/><path d="M32 46 L44 42 L56 46 L68 46"/><path d="M32 58 L44 66 C48 68 53 66 56 63 L68 55"/><path d="M46 52 L54 58 M52 49 L60 55"/></svg><div class="n">٤</div><div class="t">التعاون</div></div></div>
+      <div class="items">
+        <div class="item val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M50 22 L72 30 V50 C72 64 62 73 50 78 C38 73 28 64 28 50 V30 Z"/><path d="M39 50 L47 58 L62 42"/></svg><div class="t">الانضباط</div></div>
+        <div class="item val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M32 26 H54 L66 38 V60 M32 26 V74 H48"/><path d="M54 26 V38 H66"/><path d="M40 46 H56 M40 56 H46"/><circle cx="60" cy="62" r="9"/><path d="M67 69 L76 78"/></svg><div class="t">الشفافية</div></div>
+        <div class="item val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M50 26 V72 M38 74 H62 M28 36 H72"/><circle cx="50" cy="24" r="2.6"/><path d="M28 36 L20 54 M28 36 L36 54 M72 36 L64 54 M72 36 L80 54"/><path d="M20 54 Q28 64 36 54 Z M64 54 Q72 64 80 54 Z"/></svg><div class="t">العدالة</div></div>
+        <div class="item val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M18 46 L32 42 V62 L18 58 Z M82 46 L68 42 V62 L82 58 Z"/><path d="M32 46 L44 42 L56 46 L68 46"/><path d="M32 58 L44 66 C48 68 53 66 56 63 L68 55"/><path d="M46 52 L54 58 M52 49 L60 55"/></svg><div class="t">التعاون</div></div>
+      </div>
     </section>
   </div>
 
   <div class="hdiv"></div>
 
-  <section id="cert">
-    <img class="seal" src="assets/seal.png" alt="">
-    <div class="cert-box">
-      <h3><span>شهادة الأيزو لنظام إدارة الجودة</span></h3>
-      <div class="logos-wrap">
-        <div class="logos">
-          <img src="assets/sa.png" alt="">
-          <img src="assets/iaf.png" alt="">
-        </div>
+  <div class="cols" id="accreditations">
+    <section id="military">
+      <h2 class="sub">الاعتماد الأكاديمي العسكري</h2>
+      <div class="media"><img src="assets/seal.png" alt=""></div>
+      <div class="tag">&nbsp;</div>
+    </section>
+    <div class="vdiv"></div>
+    <section id="isocert">
+      <h2 class="sub">شهادة الآيزو لنظام إدارة الجودة</h2>
+      <div class="media">
+        <img src="assets/sa.png" alt="">
+        <img src="assets/iaf.png" alt="">
       </div>
-      <div class="iso"><span>ISO9001:2015</span></div>
-    </div>
-  </section>
+      <div class="tag">ISO 9001:2015</div>
+    </section>
+  </div>
 </div>
 <script>
 (function () {
@@ -127,8 +123,8 @@
     var c = [];
     for (var i = 0; i < w.length - 1; i++) {
       var a = w[i], b = w[i + 1];
-      if (DUAL.indexOf(a) < 0 || !/[\u0621-\u064A]/.test(b)) continue;
-      if (a === '\u0644' && '\u0627\u0623\u0625\u0622'.indexOf(b) >= 0) continue;
+      if (DUAL.indexOf(a) < 0 || !/[ء-ي]/.test(b)) continue;
+      if (a === 'ل' && 'اأإآ'.indexOf(b) >= 0) continue;
       c.push(i);
     }
     var pick = [];
@@ -141,7 +137,7 @@
   }
   function render(s) {
     var out = '', last = 0;
-    s.slots.forEach(function (p, k) { out += s.base.slice(last, p + 1) + '\u0640'.repeat(s.n[k]); last = p + 1; });
+    s.slots.forEach(function (p, k) { out += s.base.slice(last, p + 1) + 'ـ'.repeat(s.n[k]); last = p + 1; });
     return out + s.base.slice(last);
   }
   function justify(p) {
@@ -150,7 +146,7 @@
     p.innerHTML = words.map(function (w) { return '<span>' + w + '</span>'; }).join(' ');
     p.style.textAlign = 'start';
     var spans = [].slice.call(p.children);
-    var probe = document.createElement('span'); probe.textContent = '\u0640'.repeat(10); p.appendChild(probe);
+    var probe = document.createElement('span'); probe.textContent = 'ـ'.repeat(10); p.appendChild(probe);
     var tw = probe.getBoundingClientRect().width / 10; p.removeChild(probe);
     var box = p.getBoundingClientRect(), lines = [], lastTop = null;
     spans.forEach(function (sp, i) {
@@ -176,11 +172,18 @@
     spans.forEach(function (sp, i) { sp.textContent = render(st[i]); });
     p.style.textAlign = 'justify';
   }
+  // stretch each vertical divider so it touches the diamond of the horizontal divider above / below it
+  function joinDividers() {
+    [].forEach.call(document.querySelectorAll('.cols'), function (c) {
+      var v = c.querySelector(':scope > .vdiv'), r = c.getBoundingClientRect();
+      var prev = c.previousElementSibling, next = c.nextElementSibling;
+      if (prev && prev.classList.contains('hdiv')) v.style.marginTop = -(r.top - (prev.getBoundingClientRect().top + 6.5)) + 'px';
+      if (next && next.classList.contains('hdiv')) v.style.marginBottom = -((next.getBoundingClientRect().top + 6.5) - r.bottom) + 'px';
+    });
+  }
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () {
     [].forEach.call(document.querySelectorAll('#vision p, #mission p'), justify);
-    var box = document.querySelector('.cert-box');
-    box.style.setProperty('--tw', (box.querySelector('h3 span').getBoundingClientRect().width + 28) + 'px');
-    box.style.setProperty('--iw', (box.querySelector('.iso span').getBoundingClientRect().width + 28) + 'px');
+    joinDividers();
     window.__ready = true;
   });
 })();
