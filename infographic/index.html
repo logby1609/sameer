@@ -17,7 +17,9 @@
   #vision h2{font-size:36px;margin-bottom:4px}
   #mission h2{font-size:42px;margin-bottom:8px}
   #mission p{font-size:22px}
-  .div{width:100%;height:auto;display:block}
+  .div{width:100%;height:14px;position:relative}
+  .div::before{content:"";position:absolute;left:0;right:0;top:6px;height:1.5px;background:var(--gold)}
+  .div::after{content:"";position:absolute;left:50%;top:1px;width:11px;height:11px;margin-left:-5px;background:var(--gold);transform:rotate(45deg)}
   #goals h2{font-size:42px;text-align:center;margin-bottom:22px}
   .goals{display:flex;justify-content:center;align-items:flex-start}
   .goal{width:170px;text-align:center;flex:none}
@@ -36,29 +38,29 @@
       <h2>الرؤية</h2>
       <p>تحقيق التميز في تأهيل الكوادر العسكرية والمدنية في وظائف التموين العسكري.</p>
     </div>
-    <img src="assets/eye.png" alt="">
+    <img src="assets/eye.svg" alt="">
   </section>
 
-  <img class="div" src="assets/div1.png" alt="">
+  <div class="div"></div>
 
   <section id="mission">
     <h2>الرسالة</h2>
     <div class="row">
-      <img src="assets/doc.png" alt="">
+      <img src="assets/doc.svg" alt="">
       <p>أن يقدم معهد سلاح التموين التأهيل المتخصص للكوادر العسكرية والمدنية في وظائف التموين بما يسهم في تعزيز قدرات القوات البرية وتحقيق الاستدامة عن طريق الكوادر والأنظمة التعليمية المتطورة.</p>
     </div>
   </section>
 
-  <img class="div" src="assets/div2.png" alt="">
+  <div class="div"></div>
 
   <section id="goals">
     <h2>الأهداف الرئيسية</h2>
     <div class="goals">
-      <div class="goal"><img src="assets/building.png" alt=""><div class="n">١</div><div class="t">توفير بيئة جاذبة</div></div>
+      <div class="goal"><img src="assets/building.svg" alt=""><div class="n">١</div><div class="t">توفير بيئة جاذبة</div></div>
       <div class="link"></div>
-      <div class="goal"><img src="assets/people.png" alt=""><div class="n">٢</div><div class="t">تنمية الموارد البشرية</div></div>
+      <div class="goal"><img src="assets/people.svg" alt=""><div class="n">٢</div><div class="t">تنمية الموارد البشرية</div></div>
       <div class="link"></div>
-      <div class="goal"><img src="assets/grad.png" alt=""><div class="n">٣</div><div class="t">ضمان جودة التدريب</div></div>
+      <div class="goal"><img src="assets/grad.svg" alt=""><div class="n">٣</div><div class="t">ضمان جودة التدريب</div></div>
     </div>
   </section>
 
