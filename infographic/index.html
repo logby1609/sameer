@@ -23,11 +23,19 @@
   #goals h2{font-size:42px;text-align:center;margin-bottom:22px}
   .goals{display:flex;justify-content:center;align-items:flex-start}
   .goal{width:170px;text-align:center;flex:none}
-  .goal img{height:188px;width:auto;display:block;margin:0 auto}
+  .goal img{height:166px;width:auto;display:block;margin:0 auto}
   .goal .n{font-size:44px;color:var(--gold-dark);margin-top:8px;line-height:1.1}
   .goal .t{font-size:21px;margin-top:2px;white-space:nowrap}
-  .link{flex:1;max-width:100px;height:3px;background:var(--gold);margin-top:94px}
-  #cert{width:100%;height:auto;display:block}
+  .link{flex:1;max-width:100px;height:3px;background:var(--gold);margin-top:80px}
+  #cert{display:flex;align-items:center;gap:22px;height:214px}
+  #cert img{mix-blend-mode:multiply;height:auto}
+  .cert-box{flex:1;height:186px;border:2.5px solid var(--gold);position:relative;display:flex;align-items:center;justify-content:center;padding:18px 16px 0}
+  .cert-box h3{position:absolute;top:-17px;left:0;right:0;display:flex;align-items:center;gap:14px;padding:0 16px;color:var(--gold);font-size:24px;line-height:34px;text-align:center}
+  .cert-box h3::before,.cert-box h3::after{content:"";flex:1;height:2.5px;background:var(--gold)}
+  .cert-box h3 span{background:#fff;padding:0 4px;white-space:nowrap}
+  .logos{display:flex;align-items:center;justify-content:space-around;width:100%;gap:20px}
+  .logos img:nth-child(1){width:100px}.logos img:nth-child(2){width:190px}
+  .seal{width:172px;flex:none}
 </style>
 </head>
 <body>
@@ -64,7 +72,16 @@
     </div>
   </section>
 
-  <img id="cert" src="assets/cert.png" alt="">
+  <section id="cert">
+    <img class="seal" src="assets/seal.png" alt="">
+    <div class="cert-box">
+      <h3><span>شهادة الأيزو لنظام إدارة الجودة</span></h3>
+      <div class="logos">
+        <img src="assets/sa.png" alt="">
+        <img src="assets/iaf.png" alt="">
+      </div>
+    </div>
+  </section>
 </div>
 </body>
 </html>
