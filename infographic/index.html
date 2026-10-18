@@ -45,9 +45,10 @@
   .cert-box h3{position:absolute;top:-16px;left:0;right:0;display:flex;align-items:center;gap:14px;padding:0 16px;color:var(--gold);font-size:22px;line-height:32px;text-align:center}
   .cert-box h3::before,.cert-box h3::after{content:"";flex:1;height:2.5px;background:var(--gold)}
   .cert-box h3 span{background:#fff;padding:0 4px;white-space:nowrap}
-  .logos{display:flex;align-items:center;justify-content:space-around;width:100%;gap:20px}
+  .logos-wrap{align-self:flex-start;margin-right:137px;display:flex;flex-direction:column;align-items:center}
+  .logos{display:flex;align-items:center;gap:28px}
   .logos img:nth-child(1){width:86px}.logos img:nth-child(2){width:164px}
-  .iso{font-size:19px;line-height:1;margin-top:6px;direction:ltr;letter-spacing:.3px}
+  .iso{font-size:19px;line-height:1;margin-top:6px;direction:ltr;letter-spacing:.3px;color:var(--gold)}
   .seal{width:130px;flex:none}
 </style>
 </head>
@@ -98,11 +99,13 @@
     <img class="seal" src="assets/seal.png" alt="">
     <div class="cert-box">
       <h3><span>شهادة الأيزو لنظام إدارة الجودة</span></h3>
-      <div class="logos">
-        <img src="assets/sa.png" alt="">
-        <img src="assets/iaf.png" alt="">
+      <div class="logos-wrap">
+        <div class="logos">
+          <img src="assets/sa.png" alt="">
+          <img src="assets/iaf.png" alt="">
+        </div>
+        <div class="iso">ISO9001:2015</div>
       </div>
-      <div class="iso">ISO9001:2015</div>
     </div>
   </section>
 </div>
