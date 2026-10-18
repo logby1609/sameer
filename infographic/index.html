@@ -21,21 +21,21 @@
   .vdiv::before{content:"";position:absolute;top:0;bottom:0;left:14px;width:1.5px;background:var(--gold)}
   .vdiv::after{content:"";position:absolute;top:50%;left:9px;width:11px;height:11px;margin-top:-5px;background:var(--gold);transform:rotate(45deg)}
   /* الرؤية والرسالة */
-  .row{display:flex;align-items:center;gap:22px}
-  .row img{width:128px;height:auto;flex:none}
+  .row{display:flex;align-items:flex-start;gap:22px}
+  .row img{width:128px;height:128px;flex:none}
   .row p{font-size:20px;line-height:1.75}
   /* الأهداف */
   #goals h2,#values h2{text-align:center}
   .goals{display:flex;justify-content:center;align-items:flex-start}
   .goal{width:150px;text-align:center;flex:none}
-  .goal img{height:112px;width:auto;display:block;margin:0 auto}
+  .goal img{width:104px;height:104px;display:block;margin:0 auto}
   .goal .n{font-size:28px;color:var(--gold-dark);margin-top:4px;line-height:1.1}
   .goal .t{font-size:17px;margin-top:2px;white-space:nowrap}
-  .link{flex:1;max-width:46px;height:3px;background:var(--gold);margin-top:54px}
+  .link{flex:1;max-width:46px;height:3px;background:var(--gold);margin-top:50px}
   /* القيم */
-  .vals{display:flex;justify-content:center;gap:16px}
+  .vals{display:flex;justify-content:center;gap:6px}
   .val{width:118px;text-align:center}
-  .val svg{width:92px;height:92px;display:block;margin:0 auto 6px}
+  .val svg{width:104px;height:104px;display:block;margin:0 auto 6px}
   .val .t{font-size:19px;line-height:1.2}
   /* الشهادات */
   #cert{display:flex;align-items:center;gap:22px;height:150px}
@@ -86,7 +86,7 @@
     <div class="vdiv"></div>
     <section id="values">
       <h2>القيم</h2>
-      <div class="vals"><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M50 22 L72 30 V50 C72 64 62 73 50 78 C38 73 28 64 28 50 V30 Z"/><path d="M39 50 L47 58 L62 42"/></svg><div class="t">الانضباط</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M32 26 H54 L66 38 V60 M32 26 V74 H48"/><path d="M54 26 V38 H66"/><path d="M40 46 H56 M40 56 H46"/><circle cx="60" cy="62" r="9"/><path d="M67 69 L76 78"/></svg><div class="t">الشفافية</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M50 26 V72 M38 74 H62 M28 36 H72"/><circle cx="50" cy="24" r="2.6"/><path d="M28 36 L20 54 M28 36 L36 54 M72 36 L64 54 M72 36 L80 54"/><path d="M20 54 Q28 64 36 54 Z M64 54 Q72 64 80 54 Z"/></svg><div class="t">العدالة</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M18 46 L32 42 V62 L18 58 Z M82 46 L68 42 V62 L82 58 Z"/><path d="M32 46 L44 42 L56 46 L68 46"/><path d="M32 58 L44 66 C48 68 53 66 56 63 L68 55"/><path d="M46 52 L54 58 M52 49 L60 55"/></svg><div class="t">التعاون</div></div></div>
+      <div class="vals"><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M50 22 L72 30 V50 C72 64 62 73 50 78 C38 73 28 64 28 50 V30 Z"/><path d="M39 50 L47 58 L62 42"/></svg><div class="t">الانضباط</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M32 26 H54 L66 38 V60 M32 26 V74 H48"/><path d="M54 26 V38 H66"/><path d="M40 46 H56 M40 56 H46"/><circle cx="60" cy="62" r="9"/><path d="M67 69 L76 78"/></svg><div class="t">الشفافية</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M50 26 V72 M38 74 H62 M28 36 H72"/><circle cx="50" cy="24" r="2.6"/><path d="M28 36 L20 54 M28 36 L36 54 M72 36 L64 54 M72 36 L80 54"/><path d="M20 54 Q28 64 36 54 Z M64 54 Q72 64 80 54 Z"/></svg><div class="t">العدالة</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47" stroke-width="1.5"/><path d="M18 46 L32 42 V62 L18 58 Z M82 46 L68 42 V62 L82 58 Z"/><path d="M32 46 L44 42 L56 46 L68 46"/><path d="M32 58 L44 66 C48 68 53 66 56 63 L68 55"/><path d="M46 52 L54 58 M52 49 L60 55"/></svg><div class="t">التعاون</div></div></div>
     </section>
   </div>
 
