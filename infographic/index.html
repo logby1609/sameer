@@ -21,6 +21,7 @@
   .cols>section{flex:1;min-width:0}
   .vdiv{width:30px;flex:none;position:relative;align-self:stretch}
   .vdiv::before{content:"";position:absolute;top:0;bottom:0;left:14px;width:1.5px;background:var(--gold)}
+  .vdiv .end{position:absolute;left:9px;bottom:-5.5px;width:11px;height:11px;background:var(--gold);transform:rotate(45deg)}
   .vdiv::after{content:"";position:absolute;top:50%;left:9px;width:11px;height:11px;margin-top:-5px;background:var(--gold);transform:rotate(45deg)}
 
   /* الرؤية والرسالة */
@@ -29,6 +30,9 @@
   #vision p{font-size:24px;line-height:1.75;font-weight:700}
   #mission p{font-size:16px;line-height:1.97;font-weight:400}
 
+  /* the divider is 30px wide: let each side extend to its centre line so groups are centred between the page margin and the line */
+  #goals,#military{margin-left:-15px}
+  #values,#isocert{margin-right:-15px}
   /* الأهداف والقيم */
   #goals h2,#values h2{text-align:center}
   .items{display:flex;justify-content:space-evenly;align-items:flex-start}
@@ -44,10 +48,10 @@
   .sub{font-size:24px;text-align:center;margin-bottom:12px}
   .media{display:flex;align-items:flex-end;justify-content:center;gap:28px;height:124px}
   .media img{mix-blend-mode:multiply;height:auto}
-  #military .media img{height:124px;width:auto;margin-bottom:-5px}
+  #military .media img{height:124px;width:auto;margin-bottom:-8px}
   #isocert .media img:nth-child(1){width:100px;margin-bottom:-6.6px}
-  #isocert .media img:nth-child(2){width:190px;margin-bottom:-1.1px}
-  .tag{height:26px;margin-top:6px;font-size:16px;line-height:26px;color:var(--gold);text-align:center;direction:ltr;letter-spacing:.3px}
+  #isocert .media img:nth-child(2){width:190px;margin-bottom:-3.9px}
+  .tag{height:26px;margin-top:16px;font-size:16px;line-height:26px;color:var(--gold);text-align:center;direction:ltr;letter-spacing:.3px}
 </style>
 </head>
 <body>
@@ -104,7 +108,7 @@
       <div class="media"><img src="assets/seal.png" alt=""></div>
       <div class="tag">&nbsp;</div>
     </section>
-    <div class="vdiv"></div>
+    <div class="vdiv"><i class="end"></i></div>
     <section id="isocert">
       <h2 class="sub">شهادة الآيزو لنظام إدارة الجودة</h2>
       <div class="media">
