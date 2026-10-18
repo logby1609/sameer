@@ -41,14 +41,16 @@
   /* الشهادات */
   #cert{display:flex;align-items:center;gap:22px;height:188px;width:572px;margin:0 auto;position:relative;left:-12px}
   #cert img{mix-blend-mode:multiply;height:auto}
-  .cert-box{flex:1;height:166px;border:2.5px solid var(--gold);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 16px 0}
-  .cert-box h3{position:absolute;top:-16px;left:0;right:0;display:flex;align-items:center;gap:14px;padding:0 16px;color:var(--gold);font-size:22px;line-height:32px;text-align:center}
+  .cert-box{flex:1;height:166px;border:2.5px solid var(--gold);border-top-color:transparent;border-bottom-color:transparent;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 16px 0}
+  .cert-box h3{position:absolute;top:-14.75px;left:-2.5px;right:-2.5px;display:flex;align-items:center;gap:14px;padding:0;color:var(--gold);font-size:22px;line-height:32px;text-align:center}
   .cert-box h3::before,.cert-box h3::after{content:"";flex:1;height:2.5px;background:var(--gold)}
-  .cert-box h3 span{background:#fff;padding:0 4px;white-space:nowrap}
+  .cert-box h3 span{padding:0 4px;white-space:nowrap}
   .logos-wrap{align-self:flex-start;margin-right:33.5px;display:flex;flex-direction:column;align-items:center}
   .logos{display:flex;align-items:center;gap:28px}
   .logos img:nth-child(1){width:100px}.logos img:nth-child(2){width:190px}
-  .iso{font-size:19px;line-height:1;margin-top:6px;direction:ltr;letter-spacing:.3px;color:var(--gold);position:relative;left:44.5px}
+  .iso{position:absolute;bottom:-14.75px;left:-2.5px;right:-2.5px;display:flex;align-items:center;gap:14px;color:var(--gold);font-size:22px;line-height:32px;direction:ltr;text-align:center}
+  .iso::before,.iso::after{content:"";flex:1;height:2.5px;background:var(--gold)}
+  .iso span{padding:0 4px;white-space:nowrap}
   .seal{width:150px;flex:none}
 </style>
 </head>
@@ -104,8 +106,8 @@
           <img src="assets/sa.png" alt="">
           <img src="assets/iaf.png" alt="">
         </div>
-        <div class="iso">ISO9001:2015</div>
       </div>
+      <div class="iso"><span>ISO9001:2015</span></div>
     </div>
   </section>
 </div>
