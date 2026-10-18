@@ -8,79 +8,89 @@
   :root{--gold:#a8791f;--gold-dark:#8a6212;--ink:#111;}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#fff;font-family:'Almarai',sans-serif;font-weight:800;color:var(--ink)}
-  .page{width:794px;height:1123px;margin:0 auto;background:#fff;overflow:hidden;
-    display:flex;flex-direction:column;justify-content:space-between;padding:30px 56px 30px;gap:10px}
-  h2{color:var(--gold);text-shadow:2px 2px 0 rgba(0,0,0,.18);line-height:1.2}
-  .row{display:flex;align-items:center;gap:26px}
-  .row p{font-size:21px;line-height:1.75}
-  .row img{width:118px;height:auto;flex:none}
-  #vision h2{font-size:34px;margin-bottom:4px}
-  #mission h2{font-size:34px;margin-bottom:6px}
-  #mission p{font-size:20px}
-  .div{width:100%;height:14px;position:relative}
-  .div::before{content:"";position:absolute;left:0;right:0;top:6px;height:1.5px;background:var(--gold)}
-  .div::after{content:"";position:absolute;left:50%;top:1px;width:11px;height:11px;margin-left:-5px;background:var(--gold);transform:rotate(45deg)}
-  #goals h2{font-size:34px;text-align:center;margin-bottom:12px}
+  .page{width:1123px;height:794px;margin:0 auto;background:#fff;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:space-between;padding:26px 44px 24px}
+  h2{color:var(--gold);text-shadow:2px 2px 0 rgba(0,0,0,.18);line-height:1.2;font-size:32px;margin-bottom:8px}
+  .cols{display:flex;align-items:flex-start}
+  .cols>section{flex:1;min-width:0}
+  #vision{flex:.8!important}#mission{flex:1.2!important}
+  .hdiv{height:14px;position:relative}
+  .hdiv::before{content:"";position:absolute;left:0;right:0;top:6px;height:1.5px;background:var(--gold)}
+  .hdiv::after{content:"";position:absolute;left:50%;top:1px;width:11px;height:11px;margin-left:-5px;background:var(--gold);transform:rotate(45deg)}
+  .vdiv{width:30px;flex:none;position:relative;align-self:stretch}
+  .vdiv::before{content:"";position:absolute;top:0;bottom:0;left:14px;width:1.5px;background:var(--gold)}
+  .vdiv::after{content:"";position:absolute;top:50%;left:9px;width:11px;height:11px;margin-top:-5px;background:var(--gold);transform:rotate(45deg)}
+  /* الرؤية والرسالة */
+  .row{display:flex;align-items:center;gap:22px}
+  .row img{width:128px;height:auto;flex:none}
+  .row p{font-size:20px;line-height:1.75}
+  /* الأهداف */
+  #goals h2,#values h2{text-align:center}
   .goals{display:flex;justify-content:center;align-items:flex-start}
-  .goal{width:170px;text-align:center;flex:none}
-  .goal img{height:110px;width:auto;display:block;margin:0 auto}
-  .goal .n{font-size:32px;color:var(--gold-dark);margin-top:8px;line-height:1.1}
-  .goal .t{font-size:20px;margin-top:2px;white-space:nowrap}
-  .link{flex:1;max-width:100px;height:3px;background:var(--gold);margin-top:52px}
-  #cert{display:flex;align-items:center;gap:22px;height:176px}
+  .goal{width:150px;text-align:center;flex:none}
+  .goal img{height:112px;width:auto;display:block;margin:0 auto}
+  .goal .n{font-size:28px;color:var(--gold-dark);margin-top:4px;line-height:1.1}
+  .goal .t{font-size:17px;margin-top:2px;white-space:nowrap}
+  .link{flex:1;max-width:46px;height:3px;background:var(--gold);margin-top:54px}
+  /* القيم */
+  .vals{display:flex;justify-content:center;gap:16px}
+  .val{width:118px;text-align:center}
+  .val svg{width:92px;height:92px;display:block;margin:0 auto 6px}
+  .val .t{font-size:19px;line-height:1.2}
+  /* الشهادات */
+  #cert{display:flex;align-items:center;gap:22px;height:150px}
   #cert img{mix-blend-mode:multiply;height:auto}
-  .cert-box{flex:1;height:152px;border:2.5px solid var(--gold);position:relative;display:flex;align-items:center;justify-content:center;padding:18px 16px 0}
-  .cert-box h3{position:absolute;top:-17px;left:0;right:0;display:flex;align-items:center;gap:14px;padding:0 16px;color:var(--gold);font-size:24px;line-height:34px;text-align:center}
+  .cert-box{flex:1;height:132px;border:2.5px solid var(--gold);position:relative;display:flex;align-items:center;justify-content:center;padding:16px 16px 0}
+  .cert-box h3{position:absolute;top:-16px;left:0;right:0;display:flex;align-items:center;gap:14px;padding:0 16px;color:var(--gold);font-size:22px;line-height:32px;text-align:center}
   .cert-box h3::before,.cert-box h3::after{content:"";flex:1;height:2.5px;background:var(--gold)}
   .cert-box h3 span{background:#fff;padding:0 4px;white-space:nowrap}
   .logos{display:flex;align-items:center;justify-content:space-around;width:100%;gap:20px}
-  .logos img:nth-child(1){width:82px}.logos img:nth-child(2){width:156px}
+  .logos img:nth-child(1){width:86px}.logos img:nth-child(2){width:164px}
   .seal{width:140px;flex:none}
-  #values h2{font-size:34px;text-align:center;margin-bottom:12px}
-  .vals{display:flex;justify-content:center;gap:34px}
-  .val{width:130px;text-align:center}
-  .val svg{width:90px;height:90px;display:block;margin:0 auto 6px}
-  .val .t{font-size:20px;line-height:1.2}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <section id="vision" class="row">
-    <div>
+  <div class="cols">
+    <section id="vision">
       <h2>الرؤية</h2>
-      <p>تحقيق التميز في تأهيل الكوادر العسكرية والمدنية في وظائف التموين العسكري.</p>
-    </div>
-    <img src="assets/eye.svg" alt="">
-  </section>
+      <div class="row">
+        <p>تحقيق التميز في تأهيل الكوادر العسكرية والمدنية في وظائف التموين العسكري.</p>
+        <img src="assets/eye.svg" alt="">
+      </div>
+    </section>
+    <div class="vdiv"></div>
+    <section id="mission">
+      <h2>الرسالة</h2>
+      <div class="row">
+        <img src="assets/doc.svg" alt="">
+        <p>أن يقدم معهد سلاح التموين التأهيل المتخصص للكوادر العسكرية والمدنية في وظائف التموين بما يسهم في تعزيز قدرات القوات البرية وتحقيق الاستدامة عن طريق الكوادر والأنظمة التعليمية المتطورة.</p>
+      </div>
+    </section>
+  </div>
 
-  <div class="div"></div>
+  <div class="hdiv"></div>
 
-  <section id="mission">
-    <h2>الرسالة</h2>
-    <div class="row">
-      <img src="assets/doc.svg" alt="">
-      <p>أن يقدم معهد سلاح التموين التأهيل المتخصص للكوادر العسكرية والمدنية في وظائف التموين بما يسهم في تعزيز قدرات القوات البرية وتحقيق الاستدامة عن طريق الكوادر والأنظمة التعليمية المتطورة.</p>
-    </div>
-  </section>
+  <div class="cols">
+    <section id="goals">
+      <h2>الأهداف الرئيسية</h2>
+      <div class="goals">
+        <div class="goal"><img src="assets/building.svg" alt=""><div class="n">١</div><div class="t">توفير بيئة جاذبة</div></div>
+        <div class="link"></div>
+        <div class="goal"><img src="assets/people.svg" alt=""><div class="n">٢</div><div class="t">تنمية الموارد البشرية</div></div>
+        <div class="link"></div>
+        <div class="goal"><img src="assets/grad.svg" alt=""><div class="n">٣</div><div class="t">ضمان جودة التدريب</div></div>
+      </div>
+    </section>
+    <div class="vdiv"></div>
+    <section id="values">
+      <h2>القيم</h2>
+      <div class="vals"><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M50 22 L72 30 V50 C72 64 62 73 50 78 C38 73 28 64 28 50 V30 Z"/><path d="M39 50 L47 58 L62 42"/></svg><div class="t">الانضباط</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M32 26 H54 L66 38 V60 M32 26 V74 H48"/><path d="M54 26 V38 H66"/><path d="M40 46 H56 M40 56 H46"/><circle cx="60" cy="62" r="9"/><path d="M67 69 L76 78"/></svg><div class="t">الشفافية</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M50 26 V72 M38 74 H62 M28 36 H72"/><circle cx="50" cy="24" r="2.6"/><path d="M28 36 L20 54 M28 36 L36 54 M72 36 L64 54 M72 36 L80 54"/><path d="M20 54 Q28 64 36 54 Z M64 54 Q72 64 80 54 Z"/></svg><div class="t">العدالة</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M18 46 L32 42 V62 L18 58 Z M82 46 L68 42 V62 L82 58 Z"/><path d="M32 46 L44 42 L56 46 L68 46"/><path d="M32 58 L44 66 C48 68 53 66 56 63 L68 55"/><path d="M46 52 L54 58 M52 49 L60 55"/></svg><div class="t">التعاون</div></div></div>
+    </section>
+  </div>
 
-  <div class="div"></div>
-
-  <section id="goals">
-    <h2>الأهداف الرئيسية</h2>
-    <div class="goals">
-      <div class="goal"><img src="assets/building.svg" alt=""><div class="n">١</div><div class="t">توفير بيئة جاذبة</div></div>
-      <div class="link"></div>
-      <div class="goal"><img src="assets/people.svg" alt=""><div class="n">٢</div><div class="t">تنمية الموارد البشرية</div></div>
-      <div class="link"></div>
-      <div class="goal"><img src="assets/grad.svg" alt=""><div class="n">٣</div><div class="t">ضمان جودة التدريب</div></div>
-    </div>
-  </section>
-
-  <section id="values">
-    <h2>القيم</h2>
-    <div class="vals"><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M50 22 L72 30 V50 C72 64 62 73 50 78 C38 73 28 64 28 50 V30 Z"/><path d="M39 50 L47 58 L62 42"/></svg><div class="t">الانضباط</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M32 26 H54 L66 38 V60 M32 26 V74 H48"/><path d="M54 26 V38 H66"/><path d="M40 46 H56 M40 56 H46"/><circle cx="60" cy="62" r="9"/><path d="M67 69 L76 78"/></svg><div class="t">الشفافية</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M50 26 V72 M38 74 H62 M28 36 H72"/><circle cx="50" cy="24" r="2.6"/><path d="M28 36 L20 54 M28 36 L36 54 M72 36 L64 54 M72 36 L80 54"/><path d="M20 54 Q28 64 36 54 Z M64 54 Q72 64 80 54 Z"/></svg><div class="t">العدالة</div></div><div class="val"><svg viewBox="0 0 100 100" fill="none" stroke="#a8791f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="47"/><path d="M18 46 L32 42 V62 L18 58 Z M82 46 L68 42 V62 L82 58 Z"/><path d="M32 46 L44 42 L56 46 L68 46"/><path d="M32 58 L44 66 C48 68 53 66 56 63 L68 55"/><path d="M46 52 L54 58 M52 49 L60 55"/></svg><div class="t">التعاون</div></div></div>
-  </section>
+  <div class="hdiv"></div>
 
   <section id="cert">
     <img class="seal" src="assets/seal.png" alt="">
