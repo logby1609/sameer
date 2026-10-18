@@ -13,7 +13,7 @@
   h2{color:var(--gold);text-shadow:2px 2px 0 rgba(0,0,0,.18);line-height:1.2;font-size:32px;margin-bottom:8px}
   .cols{display:flex;align-items:flex-start}
   .cols>section{flex:1;min-width:0}
-  #vision{flex:.8!important}#mission{flex:1.2!important}
+  #vision{flex:.95!important}#mission{flex:1.05!important}
   .hdiv{height:14px;position:relative}
   .hdiv::before{content:"";position:absolute;left:0;right:0;top:6px;height:1.5px;background:var(--gold)}
   .hdiv::after{content:"";position:absolute;left:50%;top:1px;width:11px;height:11px;margin-left:-5px;background:var(--gold);transform:rotate(45deg)}
@@ -42,13 +42,13 @@
   #cert{display:flex;align-items:center;gap:22px;height:188px;width:572px;margin:0 auto;position:relative;left:-12px}
   #cert img{mix-blend-mode:multiply;height:auto}
   .cert-box{flex:1;height:166px;border:2.5px solid var(--gold);border-top-color:transparent;border-bottom-color:transparent;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 16px 0}
-  .cert-box h3{position:absolute;top:-14.75px;left:-2.5px;right:-2.5px;display:flex;align-items:center;gap:14px;padding:0;color:var(--gold);font-size:22px;line-height:32px;text-align:center}
+  .cert-box h3{position:absolute;top:-17.25px;left:-2.5px;right:-2.5px;display:flex;align-items:center;gap:14px;padding:0;color:var(--gold);font-size:22px;line-height:32px;text-align:center}
   .cert-box h3::before,.cert-box h3::after{content:"";flex:1;height:2.5px;background:var(--gold)}
   .cert-box h3 span{padding:0 4px;white-space:nowrap}
   .logos-wrap{align-self:flex-start;margin-right:33.5px;display:flex;flex-direction:column;align-items:center}
   .logos{display:flex;align-items:center;gap:28px}
   .logos img:nth-child(1){width:100px}.logos img:nth-child(2){width:190px}
-  .iso{position:absolute;bottom:-14.75px;left:-2.5px;right:-2.5px;display:flex;align-items:center;gap:14px;color:var(--gold);font-size:22px;line-height:32px;direction:ltr;text-align:center}
+  .iso{position:absolute;bottom:-17.25px;left:-2.5px;right:-2.5px;display:flex;align-items:center;gap:14px;color:var(--gold);font-size:22px;line-height:32px;direction:ltr;text-align:center}
   .iso::before,.iso::after{content:"";flex:1;height:2.5px;background:var(--gold)}
   .iso span{padding:0 4px;white-space:nowrap}
   .seal{width:150px;flex:none}
@@ -111,5 +111,68 @@
     </div>
   </section>
 </div>
+<script>
+(function () {
+  var DUAL = 'بتثجحخسشصضطظعغفقكلمنهيئ';
+  var MAX_PER_WORD = 3, SHARE = 0.8;   // medium kashida: up to 3 tatweel per word, ~80% of the slack
+  function slots(w) {
+    var c = [];
+    for (var i = 0; i < w.length - 1; i++) {
+      var a = w[i], b = w[i + 1];
+      if (DUAL.indexOf(a) < 0 || !/[\u0621-\u064A]/.test(b)) continue;
+      if (a === '\u0644' && '\u0627\u0623\u0625\u0622'.indexOf(b) >= 0) continue;
+      c.push(i);
+    }
+    var pick = [];
+    [0.4, 0.75, 0.15].forEach(function (f) {
+      var best = -1, bd = 1e9;
+      c.forEach(function (i) { var d = Math.abs(i - (w.length - 1) * f); if (d < bd && pick.every(function (p) { return Math.abs(p - i) > 1; })) { bd = d; best = i; } });
+      if (best >= 0 && pick.length < 2) pick.push(best);
+    });
+    return pick.sort(function (x, y) { return x - y; });
+  }
+  function render(s) {
+    var out = '', last = 0;
+    s.slots.forEach(function (p, k) { out += s.base.slice(last, p + 1) + '\u0640'.repeat(s.n[k]); last = p + 1; });
+    return out + s.base.slice(last);
+  }
+  function justify(p) {
+    var words = p.textContent.trim().replace(/\s+/g, ' ').split(' ');
+    var st = words.map(function (w) { var sl = w.length >= 3 ? slots(w) : []; return { base: w, slots: sl, n: sl.map(function () { return 0; }), total: 0 }; });
+    p.innerHTML = words.map(function (w) { return '<span>' + w + '</span>'; }).join(' ');
+    p.style.textAlign = 'start';
+    var spans = [].slice.call(p.children);
+    var probe = document.createElement('span'); probe.textContent = '\u0640'.repeat(10); p.appendChild(probe);
+    var tw = probe.getBoundingClientRect().width / 10; p.removeChild(probe);
+    var box = p.getBoundingClientRect(), lines = [], lastTop = null;
+    spans.forEach(function (sp, i) {
+      var t = Math.round(sp.getBoundingClientRect().top);
+      if (lastTop === null || Math.abs(t - lastTop) > 4) { lines.push([]); lastTop = t; }
+      lines[lines.length - 1].push(i);
+    });
+    lines.slice(0, -1).forEach(function (idx) {
+      var left = Math.min.apply(null, idx.map(function (i) { return spans[i].getBoundingClientRect().left; }));
+      var slack = box.width - (box.right - left);
+      var budget = Math.floor(slack * SHARE / tw);
+      var order = idx.filter(function (i) { return st[i].slots.length; }).sort(function (a, b) { return words[b].length - words[a].length; });
+      var progress = true;
+      while (budget > 0 && progress) {
+        progress = false;
+        for (var k = 0; k < order.length && budget > 0; k++) {
+          var s = st[order[k]];
+          if (s.total >= MAX_PER_WORD) continue;
+          s.n[s.total % s.slots.length]++; s.total++; budget--; progress = true;
+        }
+      }
+    });
+    spans.forEach(function (sp, i) { sp.textContent = render(st[i]); });
+    p.style.textAlign = 'justify';
+  }
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () {
+    [].forEach.call(document.querySelectorAll('#vision p, #mission p'), justify);
+    window.__ready = true;
+  });
+})();
+</script>
 </body>
 </html>

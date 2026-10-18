@@ -10,6 +10,7 @@ const { chromium } = require('playwright');
     await p.waitForFunction(() => [...document.images].every(i => i.complete));
   }
   await p.evaluate(() => document.fonts.ready);
+  await p.waitForFunction(() => window.__ready === true);
   await p.screenshot({ path: process.argv[2] || 'out.png', omitBackground: transparent });
   await b.close();
 })();
