@@ -38,14 +38,15 @@
   .val svg{width:104px;height:104px;display:block;margin:0 auto 6px}
   .val .t{font-size:19px;line-height:1.2}
   /* الشهادات */
-  #cert{display:flex;align-items:center;gap:22px;height:150px;width:700px;margin:0 auto}
+  #cert{display:flex;align-items:center;gap:22px;height:168px;width:700px;margin:0 auto}
   #cert img{mix-blend-mode:multiply;height:auto}
-  .cert-box{flex:1;height:132px;border:2.5px solid var(--gold);position:relative;display:flex;align-items:center;justify-content:center;padding:16px 16px 0}
+  .cert-box{flex:1;height:150px;border:2.5px solid var(--gold);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 16px 0}
   .cert-box h3{position:absolute;top:-16px;left:0;right:0;display:flex;align-items:center;gap:14px;padding:0 16px;color:var(--gold);font-size:22px;line-height:32px;text-align:center}
   .cert-box h3::before,.cert-box h3::after{content:"";flex:1;height:2.5px;background:var(--gold)}
   .cert-box h3 span{background:#fff;padding:0 4px;white-space:nowrap}
   .logos{display:flex;align-items:center;justify-content:space-around;width:100%;gap:20px}
   .logos img:nth-child(1){width:86px}.logos img:nth-child(2){width:164px}
+  .iso{font-size:19px;line-height:1;margin-top:6px;direction:ltr;letter-spacing:.3px}
   .seal{width:130px;flex:none}
 </style>
 </head>
@@ -100,6 +101,7 @@
         <img src="assets/sa.png" alt="">
         <img src="assets/iaf.png" alt="">
       </div>
+      <div class="iso">ISO9001:2015</div>
     </div>
   </section>
 </div>
